@@ -9,5 +9,13 @@ RSpec.describe "Users", type: :request do
     it "handles GET requests" do
       expect(response).to have_http_status(:ok)
     end
+
+    it "renders a correct template" do
+      expect(response).to render_template(:index)
+    end
+
+    it "renders content correctly" do
+      expect(response.body).to include('<h1>list of users</h1>')
+    end
   end
 end
