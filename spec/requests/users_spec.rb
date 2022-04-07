@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Users", type: :request do
-  describe "GET /index" do
+  describe "GET #index" do
     before(:each) do
       get '/users'
     end
@@ -18,4 +18,23 @@ RSpec.describe "Users", type: :request do
       expect(response.body).to include('<h1>list of users</h1>')
     end
   end
+
+  describe "GET #show" do
+   before(:each) do
+     get '/users/1'
+   end
+
+   it "handles GET requests" do
+     expect(response).to have_http_status(:ok)
+   end
+
+   it "renders a correct template" do
+     expect(response).to render_template(:show)
+   end
+
+   it "renders content correctly" do
+     expect(response.body).to include('<h1>single user information</h1>')
+   end
+ end
+
 end
