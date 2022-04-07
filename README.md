@@ -13,7 +13,6 @@
 To get a local copy up and running follow these simple example steps.
 
 `git clone https://github.com/abdessalem1998/blog.git`
-`cd blog-app`
 To run the dev server use the following command:
 `rails s`
 
