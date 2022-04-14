@@ -1,30 +1,59 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Blog App
+## Project requirements
 
-> The Blog app will let users view post blogs.
+The project requirements can be viewed [here](https://github.com/microverseinc/curriculum-rails/blob/main/blog-app/sneak_peek.md)
+
+### Phase 1 - setup and controllers
+
+The project requirements can be viewed [here](https://github.com/microverseinc/curriculum-rails/blob/main/blog-app/projects/Setup_Controllers_project.md)
+
+### Phase 2 - controllers specs
+
+The project requirements can be viewed [here](https://github.com/microverseinc/curriculum-rails/blob/main/blog-app/projects/controller_specs_project.md)
+
+### Phase 3 - creating data model
+
+The project requirements can be viewed [here](https://github.com/microverseinc/curriculum-rails/blob/main/blog-app/projects/creating_data_model_project.md)
+
+### Phase 4 - processing data in models
+
+The project requirements can be viewed [here](https://github.com/microverseinc/curriculum-rails/blob/main/blog-app/projects/Processing_data_model_project.md)
+
+### Phase 5 - views
+
+The project requirements can be viewed [here](https://github.com/microverseinc/curriculum-rails/blob/main/blog-app/projects/Views_project.md)
+
+### Phase 6 - add forms
+
+The project requirements can be viewed [here](https://github.com/microverseinc/curriculum-rails/blob/main/blog-app/projects/forms_project.md)
+
+### Phase 7 - validations, model specs, and n+1 problems
+
+The project requirements can be viewed [here](https://github.com/microverseinc/curriculum-rails/blob/main/blog-app/blog_app_validations_model_spec_n+1.md)
+
+### Phase 8 - add devise
+
+The project requirements can be viewed [here](https://github.com/microverseinc/curriculum-rails/blob/main/blog-app/blog_app_devise.md)
+
+### Phase 9 - add authorization rules
+
+The project requirements can be viewed [here](https://github.com/microverseinc/curriculum-rails/blob/main/blog-app/blog_app_add_authorization.md)
 
 ## Built With
 
-- Ruby on Rails
-
-## Getting Started
-
+- Major languages: Ruby
+- Framework: [Rails](https://rubyonrails.org/)
 To get a local copy up and running follow these simple example steps.
+
+## Usage
 
 `git clone https://github.com/abdessalem1998/blog.git`
 To run the dev server use the following command:
-`rails s`
+`bundle install`</br>
+`rails s`</br>
+Open a browser and go to: `https://localhost:3000` to view the app.
 
-## Prerequisites
-
-- Ruby
-- Ruby on Rails
-- PostgreSQL
-
-## Install
-
-- Ruby
 
 ## (Tests) Running specs 
 
@@ -63,5 +92,3 @@ Feel free to check the [issues page](../../issues/).
 ## Show your support
 
 Give a ⭐️ if you like this project!
-
-
