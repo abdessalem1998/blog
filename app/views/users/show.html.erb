@@ -1,14 +1,6 @@
 <section class="mt-5">
   <div class="container">
-    <div class="row mb-4">
-    <div class="col-sm-2">
-      <img class="img-thumbnail" src="<%= @user.photo %>" alt="User" />
-    </div>
-    <div class="col-sm border">
-      <h2 class="font-weight-bold display-2"><%= @user.name %></h2>
-      <span class="float-right">Number of posts: <%= @user.posts.length %></span>
-    </div>
-  </div>
+    <%= render partial: "user-header", locals: {user: @user} %>
   <div class="row border d-block m-0">
     <h5 class="m-2">bio</h5>
     <p class="m-2"><%= @user.bio %></p>
