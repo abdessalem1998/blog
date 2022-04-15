@@ -16,12 +16,14 @@
   <div class="row border d-block m-0 mt-3">
     <% @user.recent_posts.each do |post| %>
     <%= link_to user_post_path(user_id: @user.id, id: post.id) do %>
-    <div class="border m-2">
-      <h5 class="m-2"><%= post.title %> <span class="badge badge-secondary"><%= post.created_at %></span></h5>
-      <p class="m-2"><%= post.text %></p>
-    </div>
+    <%= render partial: "posts/post-preview", locals: {post: post} %>
     <% end %>
     <% end %>
+  </div>
+  <div class="row d-block m-0 mt-5 mb-5 d-flex justify-content-center">
+    <button type="button" class="btn btn-secondary">
+      <%= link_to "See all", user_posts_path(user_id: @user.id) %>
+    </button>
   </div>
 </div>
 </section>
