@@ -4,6 +4,9 @@
     <div class="border m-2">
       <h5 class="m-2"><%= @post.title %> <span class="badge badge-secondary"><%= @post.created_at %></span></h5>
       <p class="m-2"><%= @post.text %></p>
+      <%= link_to user_path(id: @post.author.id) do %>
+      <p class="m-2">by: <%= @post.author.name %></p>
+      <% end %>
     </div>
     <div class="border m-2">
       <% @post.comments.each do |comment| %>
