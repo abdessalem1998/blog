@@ -1,1 +1,15 @@
-<h1>A single post</h1>
+<section class="mt-5">
+  <div class="container">
+  <div class="row border d-block m-0 mt-3">
+    <div class="border m-2">
+      <h5 class="m-2"><%= @post.title %> <span class="badge badge-secondary"><%= @post.created_at %></span></h5>
+      <p class="m-2"><%= @post.text %></p>
+    </div>
+    <div class="border m-2">
+      <% @post.comments.each do |comment| %>
+        <p class="m-2 border-bottom"><%= comment.author.name %>: <%= comment.text %></p>
+      <% end %>
+    </div>
+  </div>
+</div>
+</section>
