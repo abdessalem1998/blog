@@ -1,21 +1,21 @@
 <section class="mt-5">
   <div class="container">
     <%= render partial: "user-header", locals: {user: @user} %>
-  <div class="row border d-block m-0">
-    <h5 class="m-2">bio</h5>
-    <p class="m-2"><%= @user.bio %></p>
+    <div class="row border d-block m-0 bg-light text-dark">
+      <h5 class="m-2">bio</h5>
+      <p class="m-2"><%= @user.bio %></p>
+    </div>
+    <div class="row border d-block m-0 mt-3">
+      <% @user.recent_posts.each do |post| %>
+        <%= link_to user_post_path(user_id: @user.id, id: post.id) do %>
+          <%= render partial: "posts/post-preview", locals: {post: post} %>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="row d-block m-0 mt-5 mb-5 d-flex justify-content-center">
+      <button type="button" class="btn btn-info w-25">
+        <%= link_to "See all", user_posts_path(user_id: @user.id) %>
+      </button>
+    </div>
   </div>
-  <div class="row border d-block m-0 mt-3">
-    <% @user.recent_posts.each do |post| %>
-    <%= link_to user_post_path(user_id: @user.id, id: post.id) do %>
-    <%= render partial: "posts/post-preview", locals: {post: post} %>
-    <% end %>
-    <% end %>
-  </div>
-  <div class="row d-block m-0 mt-5 mb-5 d-flex justify-content-center">
-    <button type="button" class="btn btn-secondary">
-      <%= link_to "See all", user_posts_path(user_id: @user.id) %>
-    </button>
-  </div>
-</div>
 </section>

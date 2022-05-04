@@ -1,9 +1,9 @@
 <div class="row mb-4">
-<div class="col-sm-2">
-  <img class="img-thumbnail" src="<%= @user.photo %>" alt="User" />
-</div>
-<div class="col-sm border">
-  <h2 class="font-weight-bold display-2"><%= @user.name %></h2>
-  <span class="float-right">Number of posts: <%= @user.posts.length %></span>
-</div>
+  <div class="col-sm-2">
+    <img class="img-thumbnail rounded-circle" src="<%= @user.photo %>" alt="User" />
+  </div>
+  <div class="col-sm border-5 rounded-pill bg-light text-dark">
+    <h2 class="font-weight-bold display-2"><%= @user.name %></h2>
+    <span class="float-right">Number of posts: <%= user.posts_counter || 0 %></span>
+  </div>
 </div>

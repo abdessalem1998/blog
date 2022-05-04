@@ -1,21 +1,26 @@
 <section class="mt-5">
   <div class="container">
     <%= render partial: "users/user-header", locals: {user: @user} %>
-  <div class="row border d-block m-0 mt-3">
-    <% @user.recent_posts.each do |post| %>
-    <%= link_to user_post_path(user_id: @user.id, id: post.id) do %>
-    <%= render partial: "post-preview", locals: {post: post} %>
-  <div class="border m-2">
-    <% if post.comments.length == 0 %>
-      <span class="">No comments</span>
-    <% else %>
-      <% post.recent_comments.each do |comment| %>
-        <p class="m-2 border-bottom"><%= comment.author.name %>: <%= comment.text %></p>
-      <% end %>
+    <div class="row border d-block m-0 mt-3 mb-5">
+      <% @user.recent_posts.each do |post| %>
+        <%= link_to user_post_path(user_id: @user.id, id: post.id) do %>
+          <%= render partial: "post-preview", locals: {post: post} %>
+            <div class="border bg-light text-dark m-2">
+              <% if post.comments.length == 0 %>
+                <span class="">No comments</span>
+              <% else %>
+              <% post.recent_comments.each do |comment| %>
+                <p class="m-2 border-bottom"><%= comment.author.name %>: <%= comment.text %></p>
+              <% end %>
+            <% end %>
+          </div>
+        <% end %>
       <% end %>
     </div>
-    <% end %>
-    <% end %>
+    <div class="row d-block m-0 mt-5 mb-5 d-flex justify-content-center">
+      <button type="button" class="btn btn-info w-25">
+        <%= link_to "Pagination", user_posts_path(user_id: @user.id) %>
+      </button>
+    </div>
   </div>
-</div>
 </section>
