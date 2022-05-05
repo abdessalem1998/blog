@@ -5,16 +5,17 @@
       <% @user.recent_posts.each do |post| %>
         <%= link_to user_post_path(user_id: @user.id, id: post.id) do %>
           <%= render partial: "post-preview", locals: {post: post} %>
-            <div class="border bg-light text-dark m-2">
-              <% if post.comments.length == 0 %>
-                <span class="">No comments</span>
-              <% else %>
+        <% end %>
+          <div class="border bg-light text-dark m-2">
+            <% if post.comments.length == 0 %>
+              <span class="">No comments</span>
+            <% else %>
               <% post.recent_comments.each do |comment| %>
                 <p class="m-2 border-bottom"><%= comment.author.name %>: <%= comment.text %></p>
               <% end %>
             <% end %>
           </div>
-        <% end %>
+          <%= render partial: 'create-comment', locals: {comment: @comment} %>
       <% end %>
     </div>
     <div class="row d-block m-0 mt-5 mb-5 d-flex justify-content-center">

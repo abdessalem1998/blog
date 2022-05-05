@@ -1,10 +1,12 @@
 <div class="">
-  <%= form_with model: comment, url: user_post_comments_path(post_id: params[:id]), html: { class: 'flex flex-col items-start w-full gap-4' } do |form| %>
-    <div class="form-group">
-    <%= form.text_area :text, class: 'form-control', placeholder: 'Your comment...', required: true, rows: 3%>
-    </div>
-    <div class="d-flex justify-content-center">
-      <%= form.submit "Comment", class: 'btn btn btn-info w-25' %>
+  <%= form_with model: comment do |form| %>
+    <div class="d-flex justify-content-around">
+      <div class="form-group w-50">
+        <%= form.text_area :text, class: 'form-control ', placeholder: 'Your comment...', required: true, rows: 3%>
+      </div>
+      <div class="w-25 d-flex align-items-center ">
+        <%= form.submit "Comment", class: 'btn btn btn-info w-75' %>
+      </div>
     </div>
   <% end %>
 </div>
