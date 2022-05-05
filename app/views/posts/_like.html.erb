@@ -1,3 +1,5 @@
 <%= form_with model: like, url: user_post_likes_path(post_id: params[:id]), html: {class: 'mb-10'} do |form| %>
-  <%= form.submit "Like", class: 'text-xl cursor-pointer hover:opacity-60 underline' %>
+  <div class="">
+    <%= form.submit "👍", class: 'float-right' %>
+  </div>
 <% end %>
