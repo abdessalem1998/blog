@@ -17,7 +17,7 @@ RSpec.describe 'Posts', type: :request do
 
   describe 'GET #show' do
     before(:each) do
-      get user_post_path(user_id: 3, id: 16)
+      get user_post_path(user_id: 1, id: 1)
     end
 
     it 'handles GET requests' do

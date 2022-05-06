@@ -17,7 +17,7 @@ RSpec.describe 'Users', type: :request do
 
   describe 'GET #show' do
     before(:each) do
-      get user_path(id: 3)
+      get user_path(id: 1)
     end
 
     it 'handles GET requests' do
