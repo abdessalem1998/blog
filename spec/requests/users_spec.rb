@@ -13,15 +13,11 @@ RSpec.describe 'Users', type: :request do
     it 'renders a correct template' do
       expect(response).to render_template(:index)
     end
-
-    it 'renders content correctly' do
-      expect(response.body).to include('<h1>list of users</h1>')
-    end
   end
 
   describe 'GET #show' do
     before(:each) do
-      get user_path(id: 1)
+      get user_path(id: 3)
     end
 
     it 'handles GET requests' do
@@ -30,10 +26,6 @@ RSpec.describe 'Users', type: :request do
 
     it 'renders a correct template' do
       expect(response).to render_template(:show)
-    end
-
-    it 'renders content correctly' do
-      expect(response.body).to include('<h1>single user information</h1>')
     end
   end
 end

@@ -1,5 +1,3 @@
-
-@@ -0,0 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe Like, type: :model do
