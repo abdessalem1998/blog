@@ -48,31 +48,20 @@ To get a local copy up and running follow these simple example steps.
 
 ## Usage
 
-`git clone https://github.com/abdessalem1998/blog.git`
-To run the dev server use the following command:
-`bundle install`</br>
-`rails s`</br>
-Open a browser and go to: `https://localhost:3000` to view the app.
+To get a local copy up and running follow these simple example steps.
 
-
-## (Tests) Running specs 
-
-```sh
-# Default: Run all spec files (i.e., those matching spec/**/*_spec.rb)
-$ bundle exec rspec
-
-# Run all spec files in a single directory (recursively)
-$ bundle exec rspec spec/models
-
-# Run a single spec file
-$ bundle exec rspec spec/controllers/accounts_controller_spec.rb
-
-# Run a single example from a spec file (by line number)
-$ bundle exec rspec spec/controllers/accounts_controller_spec.rb:8
-
-# See all options for running specs
-$ bundle exec rspec --help
-```
+1. clone the repository to you machine using your terminal:
+   `git clone https://github.com/abdessalem1998/blog.git`
+2. Install the gems:
+   `bundle install`
+3. Setup the development and the test databases:
+   `rails db:setup`
+4. Seed the test database:
+   `rails db:seed RAILS_ENV=test`
+5. To run the server use:
+   `rails s`
+   To run the tests use:
+   `rspec`
 
 
 ## Author
