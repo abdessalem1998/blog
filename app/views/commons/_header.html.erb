@@ -1,0 +1,9 @@
+<header> 
+  <nav> 
+      <%= link_to "Users", users_path %> 
+      <% if user_signed_in? %> <%= link_to "Profile" ,user_path(current_user.id)%> 
+        <%= link_to "Posts" ,user_posts_path(current_user.id)%> <%= link_to "Create a post", new_user_post_path(current_user.id), class: 'justify-self-end'%> 
+        <%= button_to "Log Out" ,destroy_user_session_path, :method => :delete%> <% else %> <%= link_to "log in" ,new_user_session_path %> 
+      <% end %> 
+  </nav> 
+</header> 
