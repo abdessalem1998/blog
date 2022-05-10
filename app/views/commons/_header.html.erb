@@ -1,9 +1,32 @@
-<header> 
-  <nav> 
-      <%= link_to "Users", users_path %> 
-      <% if user_signed_in? %> <%= link_to "Profile" ,user_path(current_user.id)%> 
-        <%= link_to "Posts" ,user_posts_path(current_user.id)%> <%= link_to "Create a post", new_user_post_path(current_user.id), class: 'justify-self-end'%> 
-        <%= button_to "Log Out" ,destroy_user_session_path, :method => :delete%> <% else %> <%= link_to "log in" ,new_user_session_path %> 
-      <% end %> 
-  </nav> 
-</header> 
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <% if user_signed_in? %>
+    <%= link_to "Profile" ,user_path(current_user.id) , class: 'nav-link active'%>
+    <% end %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <% if user_signed_in? %>
+        <li class="nav-item">
+          <%= link_to "Users", users_path, class: 'nav-link active' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Posts" ,user_posts_path(current_user.id), class: 'nav-link active' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Create a post", new_user_post_path(current_user.id), class: 'nav-link active'%>
+        </li>
+        <li class="nav-item">
+          <%= button_to "Log Out" ,destroy_user_session_path, :method => :delete, class: 'btn btn-outline-danger float-end'%>
+        </li>
+        <% else %>
+          <%= link_to "log in" ,new_user_session_path, class: 'btn btn-outline-success' %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  </nav>
+</header>
