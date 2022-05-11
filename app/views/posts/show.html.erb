@@ -4,11 +4,19 @@
       <div class="border m-2 bg-light text-dark">
         <h5 class="m-2"><%= @post.title %> <span class="badge badge-secondary float-right"><%= @post.created_at %></span></h5>
         <p class="m-2"><%= @post.text %><span class="float-right">Comments: <%= @post.comments_counter || 0 %>,Likes: <%= @post.likes_counter || 0 %></span></p>
+        <%if can? :destroy, @post %>
+        <%= button_to "Delete post 🗑", user_post_path(user_id: @post.author.id, post_id: @post.id), method: :delete, class: ''  %>
+        <% end %>
         <%= render partial: "like", locals: {like: @like} %>
       </div>
       <div class="border bg-light text-dark m-2">
         <% @post.comments.each do |comment| %>
-          <p class="m-2 border-bottom"><%= comment.author.name %>: <%= comment.text %></p>
+          <div class="d-flex justify-content-between">
+            <p class="m-2 border-bottom"><%= comment.author.name %>: <%= comment.text %></p>
+            <% if can? :destroy, comment %>
+              <%= button_to "🗑", user_post_comment_path(user_id: comment.author.id, post_id: comment.post.id, id: comment.id), method: :delete, class: ''  %>
+            <% end %>
+          </div>
         <% end %>
       </div>
       <%= render partial: 'create-comment', locals: {comment: @comment} %>

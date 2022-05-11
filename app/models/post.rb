@@ -11,6 +11,7 @@ class Post < ApplicationRecord
   end
 
   after_save :increment_post_counter
+  after_destroy :decrement_post_counter
 
   private
 

@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-  load_and_authorize_resource
 
   def index
     @user = User.find(params[:user_id])
@@ -16,7 +15,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.author = User.find(params[:user_id])
+    @post.author = User.find(current_user.id)
     if @post.save
       redirect_to user_post_path(user_id: @post.author.id, id: @post.id), notice: 'Post was successfully created!'
     else
@@ -29,7 +28,6 @@ class PostsController < ApplicationController
     Like.where(post_id: params[:id]).destroy_all
     Post.find(params[:id]).destroy
 
-    Post.decrement_post_counter
     redirect_to user_posts_path(params[:user_id]), success: 'Successfully deleted a post'
   end
 

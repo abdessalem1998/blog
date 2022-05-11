@@ -3,6 +3,7 @@ class Comment < ApplicationRecord
   belongs_to :post
 
   after_save :increment_comment_counter
+  after_destroy :decrement_comment_counter
 
   private
 
