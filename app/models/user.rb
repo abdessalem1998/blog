@@ -1,3 +1,5 @@
+# rubocop:disable Naming/ConstantName
+
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -8,6 +10,13 @@ class User < ApplicationRecord
   has_many :likes, foreign_key: 'author_id'
   validates :name, presence: true
   validates :posts_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+
+  # authorization Roles
+  Roles = %i[admin default].freeze
+
+  def is?(requested_role)
+    role == requested_role.to_s
+  end
 
   def recent_posts
     posts.order(created_at: :desc).limit(3)
