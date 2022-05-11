@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  load_and_authorize_resource
+
   def create
     @comment = current_user.comments.new(comment_params)
 
@@ -9,6 +11,12 @@ class CommentsController < ApplicationController
       render user_post_path(user_id: @comment.author.id, id: @comment.post.id),
              alert: 'An error has occurred while creating the comment.'
     end
+  end
+
+  def destroy
+    Comment.find(params[:id]).destroy
+    Comment.decrement_comment_counter
+    redirect_to user_post_path(params[:user_id], params[:post_id]), alert: 'Successfully deleted comment'
   end
 
   private
