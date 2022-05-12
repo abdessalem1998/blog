@@ -3,9 +3,7 @@
     <%= render partial: "users/user-header", locals: {user: @user} %>
     <div class="row border d-block m-0 mt-3 mb-5">
       <% @user.recent_posts.each do |post| %>
-        <%= link_to user_post_path(user_id: @user.id, id: post.id) do %>
           <%= render partial: "post-preview", locals: {post: post} %>
-        <% end %>
           <div class="border bg-light text-dark m-2">
             <% if post.comments.length == 0 %>
               <span class="">No comments</span>
@@ -15,7 +13,7 @@
               <% end %>
             <% end %>
           </div>
-          
+
       <% end %>
     </div>
     <div class="row d-block m-0 mt-5 mb-5 d-flex justify-content-center">
