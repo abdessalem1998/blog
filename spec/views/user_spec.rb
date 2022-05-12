@@ -42,7 +42,7 @@ RSpec.describe 'Testing users views', type: :feature do
     end
 
     it "I can see the user's username." do
-      expect(page).to have_content 'Tom' 
+      expect(page).to have_content 'Tom'
     end
 
     it "I can see the number of posts the user has written." do
@@ -67,11 +67,6 @@ RSpec.describe 'Testing users views', type: :feature do
     it "When I click a user's post, it redirects me to that post's show page." do
       click_on 'Post number 5'
       expect(current_path).to eq user_post_path user_id: Post.last.author.id, id: Post.last.id
-    end
-
-    it "When I click to see all posts, it redirects me to the user's post's index page." do
-      click_on 'See all'
-      expect(current_path).to eq user_posts_path user_id: User.last.id
     end
   end
 

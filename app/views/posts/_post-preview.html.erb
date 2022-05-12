@@ -1,4 +1,9 @@
 <div class="border m-2 bg-light text-dark">
-  <h5 class="m-2"><%= post.title %> <span class="badge badge-secondary float-right"><%= post.created_at %></span></h5>
+  <h5 class="m-2">
+    <%= link_to user_post_path(user_id: @user.id, id: post.id) do %>
+      <%= post.title %>
+    <% end %>
+    <span class="badge badge-secondary float-right"><%= post.created_at %></span>
+  </h5>
   <p class="m-2"><%= post.text %><span class="float-right">Comments: <%= post.comments_counter || 0 %>,Likes: <%= post.likes_counter || 0 %></span></p>
 </div>
