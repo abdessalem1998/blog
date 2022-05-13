@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  skip_before_action :authenticate_request
   def index
     @user = User.find(params[:user_id])
     @posts = @user.posts.includes(:comments, :likes)
@@ -28,6 +29,14 @@ class PostsController < ApplicationController
     Post.find(params[:id]).destroy
 
     redirect_to user_posts_path(params[:user_id]), success: 'Successfully deleted a post'
+  end
+
+  def posts
+    user = User.find(params[:user_id])
+
+    respond_to do |format|
+      format.json { render json: user.posts }
+    end
   end
 
   private
