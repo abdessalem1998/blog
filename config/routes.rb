@@ -10,4 +10,8 @@ Rails.application.routes.draw do
   end
   # Defines the root path route ("/")
   # root "articles#index"
+  post '/api/login', to: 'authentication#login' 
+  get '/api/posts', to: 'posts#get_posts' 
+  get '/api/comments', to: 'comments#get_comments' 
+  post '/api/comments', to: 'comments#add_comment' 
 end
