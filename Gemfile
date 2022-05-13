@@ -33,6 +33,9 @@ gem 'devise'
 
 gem 'cancan'
 
+gem 'bcrypt', '~> 3.1.7'
+gem 'jwt'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
